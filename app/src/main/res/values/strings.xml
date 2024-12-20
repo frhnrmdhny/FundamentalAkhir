@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SubsDicoding</string>
+    <string name="title_upcoming">Upcoming Event</string>
+    <string name="title_finished">Finish Event</string>
+    <string name="title_home">Home Event</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="finished">Finish</string>
+    <string name="home">Home</string>
+    <string name="register">Register</string>
+    <string name="title">Title</string>
+    <string name="organizer">Organizer</string>
+    <string name="time">Time</string>
+    <string name="quota">Quota</string>
+    <string name="description">Desc</string>
+    <string name="event">Events</string>
+    <string name="image">Image</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="title_favorite">Favorite Event</string>
+    <string name="title_setting">Setting</string>
+    <string name="infoToggle">Dark Theme</string>
+    <string name="fab_content_desc">fab</string>
+    <string name="city">City</string>
+</resources>
