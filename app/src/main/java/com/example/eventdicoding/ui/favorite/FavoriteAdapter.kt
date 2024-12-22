@@ -9,17 +9,21 @@ import com.bumptech.glide.Glide
 import com.example.eventdicoding.data.database.FavoriteEvent
 import com.example.eventdicoding.databinding.EventFavItemBinding
 
-class FavoriteAdapter : ListAdapter<FavoriteEvent, FavoriteAdapter.ViewHolder>(
-    DiffCallback()
-) {
+class FavoriteAdapter(
+    private val onItemClicked: (FavoriteEvent) -> Unit,
+) : ListAdapter<FavoriteEvent, FavoriteAdapter.ViewHolder>(DiffCallback()) {
 
     class ViewHolder(private val binding: EventFavItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(event: FavoriteEvent) {
+
+        fun bind(event: FavoriteEvent, onItemClicked: (FavoriteEvent) -> Unit) {
             binding.favEventTitle.text = event.name
             Glide.with(binding.root.context)
                 .load(event.mediaCover)
                 .into(binding.favEventImage)
+            binding.root.setOnClickListener {
+                onItemClicked(event)
+            }
         }
     }
 
@@ -31,7 +35,8 @@ class FavoriteAdapter : ListAdapter<FavoriteEvent, FavoriteAdapter.ViewHolder>(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val event = getItem(position)
+        holder.bind(event, onItemClicked)
     }
 }
 
@@ -44,3 +49,6 @@ class DiffCallback : DiffUtil.ItemCallback<FavoriteEvent>() {
         return oldItem == newItem
     }
 }
+
+
+
