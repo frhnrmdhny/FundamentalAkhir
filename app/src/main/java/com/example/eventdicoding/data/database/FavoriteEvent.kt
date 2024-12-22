@@ -12,7 +12,7 @@ import android.os.Parcelable
 data class FavoriteEvent(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: String,
+    val id: Int,
 
     @ColumnInfo(name = "name")
     val name: String,

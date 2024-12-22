@@ -74,7 +74,7 @@ class DetailViewModel(
             if (_isFavorite.value == true) {
                 repository.deleteFavorite(
                     FavoriteEvent(
-                        id = currentEvent.id.toString(),
+                        id = currentEvent.id ?: 0,
                         name = currentEvent.name ?: "",
                         mediaCover = currentEvent.mediaCover
                     )
@@ -82,7 +82,7 @@ class DetailViewModel(
             } else {
                 repository.insertFavorite(
                     FavoriteEvent(
-                        id = currentEvent.id.toString(),
+                        id = currentEvent.id ?: 0,
                         name = currentEvent.name ?: "",
                         mediaCover = currentEvent.mediaCover
                     )
@@ -91,6 +91,7 @@ class DetailViewModel(
             _isFavorite.value = _isFavorite.value != true
         }
     }
+
 }
 
 
